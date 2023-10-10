@@ -2,12 +2,12 @@
 // Check if the form was submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve user input from the form
-    $name = $_POST["name"];
+    $username = $_POST["username"];
     $email = $_POST["email"];
     $password = $_POST["password"];
 
     // Basic input validation (you should enhance this)
-    if (empty($name) || empty($email) || empty($password)) {
+    if (empty($username) || empty($email) || empty($password)) {
         echo "All fields are required.";
     } else {
         // In a real application, you would typically:
@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // For demonstration purposes, we'll just display the input.
         echo "User registered successfully.<br>";
-        echo "Name: " . $name . "<br>";
+        echo "Userrname: " . $username . "<br>";
         echo "Email: " . $email . "<br>";
     }
 } else {

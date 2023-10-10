@@ -20,11 +20,28 @@ class UserController{
     public function create()
     {
         // Perform input validation here
-
+ 
         // If input valid, call the create method on the UserModel
         $this->userModel->create();
 
         // Next step
         //render('/../Views/index.html');
+    }
+
+    public function read($id)
+    {
+        $this->userModel->findById($id);
+    }
+
+    public function delete($id)
+    {
+        $this->userModel->delete($id);
+    }
+
+    public function update($id)
+    {
+        // Perform input validation here
+
+        $this->userModel->update($id);
     }
 }

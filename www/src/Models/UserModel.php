@@ -5,7 +5,11 @@ include_once(__DIR__.'/../Utils/render.php');
 
 
 class UserModel{
-
+    private $id;
+    private $username;
+    private $email;
+    
+    
     // Create a new user
     public static function create() {
         // Perform database insert and return a new UserModel instance
@@ -25,13 +29,13 @@ class UserModel{
     }
 
     // Update user information
-    public function update() {
+    public function update($id) {
         // Update the database record with the current object's data
         // This part will depend on your database implementation
     }
 
     // Delete user
-    public function delete() {
+    public function delete($id) {
         // Delete the database record associated with the current object's ID
         // This part will depend on your database implementation
     }
