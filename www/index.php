@@ -5,7 +5,8 @@
     $request_url = $_GET['url'];
     $router = new App\Router\Router($request_url);
     $router->get('/', function(){ render('/../Views/login.html');});
-    $router->get('/login', 'User#login');
+    $router->get('/login', 'Auth#login');
+    $router->post('/login', 'Auth#authenticate');
     $router->get('/signup', 'User#signup');
     $router->post('/signup', 'User#create');
     $router->run();

@@ -16,11 +16,6 @@ class UserController{
         render('/../Views/user_registration.html');
     }
 
-    public function login()
-    {
-        render('/../Views/login.html');
-    }
-
     public function create()
     {
         $username = $_POST["username"];
@@ -30,7 +25,7 @@ class UserController{
         $userData = $this->userModel->registerUser($username, $email, $password);
 
         if ($userData)
-            echo $userData["username"] . " successfully registered with email: " . $userData["email"];
+            echo $userData["username"] . " successfully registered with email: " . $userData["email"]. " Check your email to validate your account !";
         else
             echo " Registration Failed";
         
