@@ -13,18 +13,38 @@ class UserController{
 
     public function signup()
     {
-        // Display user registration form to user
         render('/../Views/user_registration.html');
     }
 
     public function create()
     {
+        $username = $_POST["username"];
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+        
+        $userData = $this->userModel->registerUser($username, $email, $password);
+
+        if ($userData)
+            echo $userData["username"] . " successfully registered with email: " . $userData["email"];
+        else
+            echo " Registration Failed";
+        
+    }
+
+    public function read($id)
+    {
+        $this->userModel->findById($id);
+    }
+
+    public function update($id)
+    {
         // Perform input validation here
 
-        // If input valid, call the create method on the UserModel
-        $this->userModel->create();
+        $this->userModel->update($id);
+    }
 
-        // Next step
-        //render('/../Views/index.html');
+    public function delete($id)
+    {
+        $this->userModel->delete($id);
     }
 }
