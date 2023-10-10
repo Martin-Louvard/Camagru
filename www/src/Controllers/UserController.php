@@ -19,13 +19,22 @@ class UserController{
 
     public function create()
     {
-        // Perform input validation here
- 
-        // If input valid, call the create method on the UserModel
-        $this->userModel->create();
+        $username = $_POST["username"];
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+        
+        $userData = $this->userModel->registerUser($username, $email, $password);
 
-        // Next step
-        //render('/../Views/index.html');
+        if ($userData) {
+            // Registration successful, you can use $userData as needed
+            // Redirect to a success page or perform other actions
+            echo $userData["username"] . " successfully registered with email: " . $userData["email"];
+        } else {
+            // Registration failed, handle the error (e.g., display an error message)
+            // Example: echo "Registration failed.";
+            echo " Registration Failed";
+
+        }
     }
 
     public function read($id)
@@ -33,15 +42,15 @@ class UserController{
         $this->userModel->findById($id);
     }
 
-    public function delete($id)
-    {
-        $this->userModel->delete($id);
-    }
-
     public function update($id)
     {
         // Perform input validation here
 
         $this->userModel->update($id);
+    }
+
+    public function delete($id)
+    {
+        $this->userModel->delete($id);
     }
 }

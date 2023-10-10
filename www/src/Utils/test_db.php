@@ -1,5 +1,5 @@
 <?php
-$link = mysqli_connect("database", "root", $_ENV['MYSQL_ROOT_PASSWORD'], null);
+$link = mysqli_connect("database", "root", $_ENV['MYSQL_ROOT_PASSWORD'], "camagru_database");
 
 if (!$link) {
     echo "Error: Unable to connect to MySQL." . PHP_EOL;
@@ -9,5 +9,18 @@ if (!$link) {
 }
 
 echo "Success: A proper connection to MySQL was made! The docker database is great." . PHP_EOL;
+
+$query = "SELECT * FROM users";
+$result = mysqli_query($link, $query);
+
+if (!$result) {
+    die('Query Error: ' . mysqli_error($link));
+}
+
+while ($row = mysqli_fetch_assoc($result)) {
+    // Process each row of data
+    echo "\r\n";
+    echo $row['username'];
+}
 
 mysqli_close($link);
