@@ -16,6 +16,11 @@ class UserController{
         render('/../Views/user_registration.html');
     }
 
+    public function login()
+    {
+        render('/../Views/login.html');
+    }
+
     public function create()
     {
         $username = $_POST["username"];
