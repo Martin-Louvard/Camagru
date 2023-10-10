@@ -13,7 +13,6 @@ class UserController{
 
     public function signup()
     {
-        // Display user registration form to user
         render('/../Views/user_registration.html');
     }
 
@@ -25,16 +24,11 @@ class UserController{
         
         $userData = $this->userModel->registerUser($username, $email, $password);
 
-        if ($userData) {
-            // Registration successful, you can use $userData as needed
-            // Redirect to a success page or perform other actions
+        if ($userData)
             echo $userData["username"] . " successfully registered with email: " . $userData["email"];
-        } else {
-            // Registration failed, handle the error (e.g., display an error message)
-            // Example: echo "Registration failed.";
+        else
             echo " Registration Failed";
-
-        }
+        
     }
 
     public function read($id)
