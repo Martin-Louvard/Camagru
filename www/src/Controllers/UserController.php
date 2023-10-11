@@ -25,7 +25,7 @@ class UserController{
         $userData = $this->userModel->registerUser($username, $email, $password);
 
         if ($userData)
-            echo $userData["username"] . " successfully registered with email: " . $userData["email"]. " Check your email to validate your account !";
+            echo $userData["username"] . " successfully registered with email: " . $userData["email"]. " Check your email to validate your account !".  "    In User Controller #create";
         else
             echo " Registration Failed";
         
@@ -33,18 +33,22 @@ class UserController{
 
     public function read($id)
     {
-        $this->userModel->findById($id);
+        return $this->userModel->findById($id);
     } 
 
-    public function update($id)
+    public function update()
     {
-        // Perform input validation here
-
-        $this->userModel->update($id);
+        echo 'in User controller update function';
+        //$this->userModel->update();
     }
 
     public function delete($id)
     {
         $this->userModel->delete($id);
+    }
+
+    public function show()
+    {
+        render('/../Views/profile.php');
     }
 }
