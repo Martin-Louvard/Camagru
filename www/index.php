@@ -12,6 +12,7 @@
     $router->get('/signup', 'User#signup');
     $router->post('/signup', 'User#create');
     $router->get('/profile', 'User#show');
+    $router->post('/profile', 'User#update');
 
     $router->run();
     
