@@ -23,9 +23,9 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: column;
-    justify-content: center; 
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
     min-height: 100vh;
 }
 
@@ -76,14 +76,38 @@ form{
 }
 
 .navbar{
-    position: sticky;
+    position: fixed;
     top:0;
-    width: 100vw;
+    left: 0;
+    height: 100vh;
+    width: 13vw;
+    min-width:170px;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid #262626;
+    align-items: left;
+    border-right: 1px solid #262626;
     background-color: #000000;
+    padding: 5px;
+}
+
+.navbar div{
+    display: flex;
+    flex-direction: column;
+    margin: 4px 2px;
+    padding: 10px;
+
+}
+
+.navbar button{
+    border: none;
+    border-radius: 15px;
+    background-color: transparent;
+    text-align: left;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
 }
 
 .navbar a{
@@ -92,7 +116,6 @@ form{
     color: white;
     padding: 10px 32px;
     text-decoration: none;
-    margin: 4px 2px;
     cursor: pointer;
     font-weight: bold;
     height: fit-content;
