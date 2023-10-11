@@ -159,6 +159,8 @@ form{
     font-size: 30px;
     display: flex;
     padding: 10px;
+    cursor: pointer;
+    color: white;
 }
 
 .navbar a:hover{
