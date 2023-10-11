@@ -160,5 +160,8 @@ form{
     font-size: 30px;
     display: flex;
     padding: 10px;
+}
 
+.navbar a:hover{
+    background-color: #262626; 
 }
