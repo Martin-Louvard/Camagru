@@ -18,8 +18,20 @@ class AuthController{
 
     public function authenticate()
     {
-        // Implement Authentication Logic here or in Auth Model
-        echo "User authenticated";
-    
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                // Handle the form submission
+                $username = $_POST['username'];
+                $password = $_POST['password'];
+            if ($this->authModel->authenticateUser($username, $password)) {
+                echo "auth success". $_SESSION['user'];
+            } else {
+                echo "auth failed";
+            }
+        }
+    }
+
+    public function destroySession() {
+        $_SESSION = array();
+        session_destroy();
     }
 }

@@ -40,11 +40,25 @@ class UserModel{
 
     // Read user by ID
     public function findById($id) {
-        // Query the database to find a user by ID
-        // Return a UserModel instance if found, or null if not found
-        // This part depends on your database implementation
-        // For simplicity, we'll return null here
+
         return null;
+    }
+
+    public function findByUsername($username) {
+        $query = "SELECT * FROM users WHERE username = ?";
+    
+        $stmt = mysqli_prepare($this->mysqli, $query);
+        mysqli_stmt_bind_param($stmt, "s", $username);
+        
+        if (mysqli_stmt_execute($stmt)) {
+            $result = mysqli_stmt_get_result($stmt);
+            $user = mysqli_fetch_assoc($result);
+            mysqli_stmt_close($stmt);
+
+            return $user;
+        } else {
+            die('Query Error: ' . mysqli_error($this->mysqli));
+        }
     }
 
     // Update user information

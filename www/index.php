@@ -7,6 +7,7 @@
     $router->get('/', function(){ render('/../Views/login.html');});
     $router->get('/login', 'Auth#login');
     $router->post('/login', 'Auth#authenticate');
+    $router->get('/logout', 'Auth#destroySession');
     $router->get('/signup', 'User#signup');
     $router->post('/signup', 'User#create');
     $router->run();

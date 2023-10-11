@@ -16,6 +16,25 @@ class AuthModel{
         $this->mysqli = DatabaseConnection::getInstance()->getConnection();
         $this->userModel = new UserModel();
     }
-    
 
+    public function authenticateUser($username, $password) {
+        $userdb = $this->userModel->findByUsername($username);
+        if ($userdb && password_verify($password, $userdb["password"]))
+        {
+            $this->startSession();
+            $this->setUserSession($username);
+            return true;
+        }
+        else
+            return false;
+    }
+
+    private function startSession() {
+        session_start();
+    }
+    
+    private function setUserSession($username) {
+        $_SESSION['user'] = $username;
+    }
+    
 }

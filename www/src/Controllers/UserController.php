@@ -34,7 +34,7 @@ class UserController{
     public function read($id)
     {
         $this->userModel->findById($id);
-    }
+    } 
 
     public function update($id)
     {
