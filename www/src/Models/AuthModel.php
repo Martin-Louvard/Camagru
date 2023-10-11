@@ -21,15 +21,17 @@ class AuthModel{
         $userdb = $this->userModel->findByUsername($username);
         if ($userdb && password_verify($password, $userdb["password"]))
         {
-            $this->setUserSession($username);
+            $this->setUserSession($username, $userdb['id']);
             return true;
         }
         else
             return false;
     }
     
-    private function setUserSession($username) {
+    private function setUserSession($username, $id) {
         $_SESSION['user'] = $username;
+        $_SESSION['userId'] = $id;
+
     }
     
 }

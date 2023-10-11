@@ -11,5 +11,7 @@
     $router->get('/logout', 'Auth#destroySession');
     $router->get('/signup', 'User#signup');
     $router->post('/signup', 'User#create');
+    $router->get('/profile', 'User#show');
+
     $router->run();
     

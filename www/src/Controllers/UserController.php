@@ -33,7 +33,7 @@ class UserController{
 
     public function read($id)
     {
-        $this->userModel->findById($id);
+        return $this->userModel->findById($id);
     } 
 
     public function update($id)
@@ -46,5 +46,12 @@ class UserController{
     public function delete($id)
     {
         $this->userModel->delete($id);
+    }
+
+    public function show()
+    {
+        if (!(isset($_SESSION['userId'])))
+            return;
+        $user = read($_SESSION['userId']);
     }
 }
