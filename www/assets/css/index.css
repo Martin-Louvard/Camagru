@@ -4,10 +4,22 @@
     --font-family: Arial, sans-serif;
 }
 
+
+@font-face {
+    font-family: FontSpring;
+    src: url("/assets/fonts/Fontspring-regular.otf") format("opentype");
+}
+
+@font-face {
+    font-family: FontSpring;
+    font-weight: bold;
+    src: url("/assets/fonts/Fontspring-bold.otf") format("opentype");
+}
+
 body {
     font-family: var(--font-family);
-    background-color: #ffffff;
-    color: #333;
+    background-color: #000000;
+    color: #F5F5F5;
     margin: 0;
     padding: 0;
     display: flex;
@@ -63,6 +75,29 @@ form{
     flex-direction: column;
 }
 
+.navbar{
+    position: sticky;
+    top:0;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #262626;
+    background-color: #000000;
+}
+
+.navbar a{
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 10px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-weight: bold;
+    height: fit-content;
+}
+
 .auth-form{
     border: 1px solid #DBDBDB;
     display: flex;
@@ -71,4 +106,36 @@ form{
     align-items: center;
     padding: 10px;
     min-width: 350px;
+}
+
+.main{
+    display: flex;
+    min-height: 90vh;
+    flex-direction: column;
+    overflow-y: scroll;
+    align-items: center;
+    justify-content: center;
+}
+
+.card{
+    margin: 10px;
+    background-color: #DBDBDB;
+    height: 468px;
+    width: 468px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card img{
+    width: fit-content;
+
+}
+
+.logo{
+    font-family: 'FontSpring';
+    font-size: 30px;
+    display: flex;
+    padding: 10px;
+
 }

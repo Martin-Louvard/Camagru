@@ -23,7 +23,7 @@ class AuthController{
                 $username = $_POST['username'];
                 $password = $_POST['password'];
             if ($this->authModel->authenticateUser($username, $password)) {
-                echo "auth success". $_SESSION['user'];
+                header("Location: /");
             } else {
                 echo "auth failed";
             }
@@ -33,5 +33,6 @@ class AuthController{
     public function destroySession() {
         $_SESSION = array();
         session_destroy();
+        header("Location: /");
     }
 }
