@@ -74,11 +74,38 @@ class UserModel{
         }
     }
 
-    // Update user information
-    public function update($id) {
-        // Update the database record with the current object's data
-        // This part will depend on your database implementation
+    public function update($id, $username, $email, $password) {
+
+        if (empty($id) || empty($username) || empty($email) || empty($password)) {
+            return false; // Input validation failed
+        }
+
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+        // Prepare the SQL query to update user information
+        $query = "UPDATE users SET username = ?, email = ?, password = ? WHERE id = ?";
+        
+        // Prepare the statement
+        $stmt = mysqli_prepare($this->mysqli, $query);
+        
+        // Bind parameters
+        mysqli_stmt_bind_param($stmt, "sssi", $username, $email, $hashedPassword, $id);
+        
+        // Execute the statement
+        $result = mysqli_stmt_execute($stmt);
+        
+        if (!$result) {
+            die('Query Error: ' . mysqli_error($this->mysqli));
+        }
+        
+        // Close the statement
+        mysqli_stmt_close($stmt);
+        $updatedUser = $this->findById($id); // Define a method to get a user by ID
+        $_SESSION['user'] = $username;
+        return $updatedUser;
+
     }
+    
 
     // Delete user
     public function delete($id) {
