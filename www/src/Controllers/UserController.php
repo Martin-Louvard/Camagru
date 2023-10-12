@@ -38,8 +38,15 @@ class UserController{
 
     public function update()
     {
-        echo 'in User controller update function';
-        //$this->userModel->update();
+        if (!(isset($_SESSION['userId'])))
+            return;
+        $id = $_SESSION['userId'];
+        $username = $_POST["username"];
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+        
+        $userData = $this->userModel->update($id, $username, $email, $password);
+        render('/../Views/home.php');
     }
 
     public function delete($id)

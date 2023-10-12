@@ -1,6 +1,7 @@
 :root {
-    --primary-color: #3498db;
-    --secondary-color: #e74c3c;
+    --primary-color: #C0C0C0;
+    --red-color: #FF0000;
+    --orange-color: #FFA500;
     --font-family: Arial, sans-serif;
 }
 
@@ -52,14 +53,25 @@ button:hover {
     background-color: #2980b9;
 }
 
-input{
-    margin: 4px 2px;
-    border: 1px solid #DBDBDB;
-    border-radius: 2px;
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="date"],
+input[type="search"] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
+
 input[type=submit]{
-    background-color: var(--secondary-color);;
+    background-color: var(--red-color);;
     border: none;
     border-radius: 15px;
     color: white;
@@ -68,11 +80,21 @@ input[type=submit]{
     margin: 4px 2px;
     cursor: pointer;
     font-weight: bold;
+    margin-top: 10px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  background-color: #f2f2f2;
 }
 
 form{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 .navbar{
@@ -161,6 +183,10 @@ form{
     padding: 10px;
     cursor: pointer;
     color: white;
+}
+
+a.logo{
+    font-size: 80px;
 }
 
 .navbar a:hover{
