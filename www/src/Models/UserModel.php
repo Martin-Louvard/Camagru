@@ -4,6 +4,7 @@ use App\Utils\DatabaseConnection;
 
 include_once(__DIR__.'/../Utils/render.php');
 include_once(__DIR__.'/../Utils/db_connection.php');
+include_once(__DIR__ .'/../Utils/mailer.php');
 
 class UserModel{
     private $mysqli;
@@ -35,6 +36,7 @@ class UserModel{
         mysqli_stmt_close($stmt);
         
         // Return any necessary information, e.g., the inserted user's ID
+        sendRegistrationEmail($email);
         return mysqli_insert_id($this->mysqli);        
     }
 
